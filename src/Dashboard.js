@@ -1,18 +1,43 @@
 import React from 'react'
 import Pet from './components/Pet'
+import { fetchCat, fetchDog, deleteCat, deleteDog } from './actions'
+import { connect } from 'react-redux'
 
-const onAdoptPet = pet => {
-  console.log(pet.name)
+export class Dashboard extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchCat())
+    this.props.dispatch(fetchDog())
+  }
+
+  onAdoptPet = species => {
+    if (species === 'cat') {
+      this.dispatch(deleteCat())
+    } else {
+      this.dispatch(deleteDog())
+    }
+  }
+
+  render() {
+    return (
+      <main>
+        <Pet
+          pet={this.props.catToAdopt}
+          species="cat"
+          onAdoptPet={this.onAdoptPet}
+        />
+        <Pet
+          pet={this.props.dogToAdopt}
+          species="dog"
+          onAdoptPet={this.onAdoptPet}
+        />
+      </main>
+    )
+  }
 }
 
-export const Dashboard = ({ catToAdopt, dogToAdopt }) => {
-  return (
-    <main>
-      {[catToAdopt, dogToAdopt].map((pet, i) => {
-        return <Pet pet={pet} onAdoptPet={onAdoptPet} key={i} />
-      })}
-    </main>
-  )
-}
+const mapStateToProps = state => ({
+  dogToAdopt: state.dog,
+  catToAdopt: state.cat
+})
 
-export default Dashboard
+export default connect(mapStateToProps)(Dashboard)

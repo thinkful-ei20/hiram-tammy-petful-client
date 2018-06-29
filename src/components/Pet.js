@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Pet = ({ pet, onAdoptPet }) => {
+export const Pet = ({ pet, onAdoptPet, species }) => {
   return (
     <section>
       <header>
@@ -18,7 +18,7 @@ export const Pet = ({ pet, onAdoptPet }) => {
         <dt>Story:</dt>
         <dd>{pet.story}</dd>
       </dl>
-      <button onClick={() => onAdoptPet(pet)}>Adopt</button>
+      <button onClick={() => onAdoptPet(species)}>Adopt</button>
     </section>
   )
 }

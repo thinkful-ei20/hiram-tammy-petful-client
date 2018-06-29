@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
 import Dashboard from './Dashboard'
-import dogs from './data/dogs'
-import cats from './data/cats'
+import { Provider } from 'react-redux'
+import store from './store'
 
 ReactDOM.render(
-  <Dashboard catToAdopt={cats[0]} dogToAdopt={dogs[0]} />,
+  <Provider store={store}>
+    <Dashboard />
+  </Provider>,
   document.getElementById('root')
 )
 registerServiceWorker()
