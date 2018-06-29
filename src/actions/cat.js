@@ -55,7 +55,7 @@ export const deleteCatError = error => ({
 export const deleteCat = () => dispatch => {
   dispatch(deleteCatRequest())
   return fetch(`${apiURL}/cat`, {
-    METHOD: 'DELETE'
+    method: 'DELETE'
   })
     .then(res => {
       if (!res.ok) {

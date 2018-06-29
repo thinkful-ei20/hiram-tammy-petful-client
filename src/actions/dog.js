@@ -55,7 +55,7 @@ export const deleteDogError = error => ({
 export const deleteDog = () => dispatch => {
   dispatch(deleteDogRequest())
   return fetch(`${apiURL}/dog`, {
-    METHOD: 'DELETE'
+    method: 'DELETE'
   })
     .then(res => {
       if (!res.ok) {
