@@ -70,5 +70,6 @@ export const deleteDog = () => dispatch => {
       return res.json()
     })
     .then(cat => dispatch(deleteDogSuccess(cat)))
+    .then(() => dispatch(fetchDog()))
     .catch(error => dispatch(deleteDogError(error)))
 }
