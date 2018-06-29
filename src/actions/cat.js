@@ -1,3 +1,5 @@
+import { apiURL } from '../config'
+
 export const FETCH_CAT_REQUEST = 'FETCH_CAT_REQUEST'
 export const fetchCatRequest = () => ({
   type: FETCH_CAT_REQUEST
@@ -16,7 +18,6 @@ export const fetchCatError = error => ({
 })
 
 export const fetchCat = () => dispatch => {
-  import { apiURL } from '../config'
   dispatch(fetchCatRequest())
   return fetch(`${apiURL}/cat`)
     .then(res => {
@@ -52,7 +53,6 @@ export const deleteCatError = error => ({
 })
 
 export const deleteCat = () => dispatch => {
-  import { apiURL } from '../config'
   dispatch(deleteCatRequest())
   return fetch(`${apiURL}/cat`, {
     METHOD: 'DELETE'

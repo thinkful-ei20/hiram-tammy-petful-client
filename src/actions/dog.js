@@ -1,6 +1,8 @@
+import { apiURL } from '../config'
+
 export const FETCH_DOG_REQUEST = 'FETCH_DOG_REQUEST'
-export const fetchdogRequest = () => ({
-  type: FETCH_dog_REQUEST
+export const fetchDogRequest = () => ({
+  type: FETCH_DOG_REQUEST
 })
 
 export const FETCH_DOG_SUCCESS = 'FETCH_DOG_SUCCESS'
@@ -16,7 +18,6 @@ export const fetchDogError = error => ({
 })
 
 export const fetchDog = () => dispatch => {
-  import { apiURL } from '../config'
   dispatch(fetchDogRequest())
   return fetch(`${apiURL}/dog`)
     .then(res => {
@@ -32,7 +33,7 @@ export const fetchDog = () => dispatch => {
       return res.json()
     })
     .then(dog => dispatch(fetchDogSuccess(dog)))
-    .dogch(error => dispatch(fetchDogError(error)))
+    .catch(error => dispatch(fetchDogError(error)))
 }
 
 export const DELETE_DOG_REQUEST = 'DELETE_DOG_REQUEST'
@@ -52,7 +53,6 @@ export const deleteDogError = error => ({
 })
 
 export const deleteDog = () => dispatch => {
-  import { apiURL } from '../config'
   dispatch(deleteDogRequest())
   return fetch(`${apiURL}/dog`, {
     METHOD: 'DELETE'
