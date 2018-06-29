@@ -11,9 +11,9 @@ export class Dashboard extends React.Component {
 
   onAdoptPet = species => {
     if (species === 'cat') {
-      this.dispatch(deleteCat())
+      this.props.dispatch(deleteCat())
     } else {
-      this.dispatch(deleteDog())
+      this.props.dispatch(deleteDog())
     }
   }
 
