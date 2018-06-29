@@ -4,3 +4,20 @@ body {
   font-family: sans-serif;
   box-sizing: border-box;
 }
+
+main {
+  width: 960px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+section {
+  display: inline-block;
+  max-width: 45%;
+  width: 45%;
+}
+
+section img {
+  width: 100%;
+  max-width: 100%;
+}
