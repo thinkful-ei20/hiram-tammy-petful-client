@@ -20,21 +20,16 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <main>
-        {this.props.catToAdopt ? (
-          <Pet
-            pet={this.props.catToAdopt.data}
-            species="cat"
-            onAdoptPet={this.onAdoptPet}
-          />
-        ) : null}
-
-        {this.props.dogToAdopt ? (
-          <Pet
-            pet={this.props.dogToAdopt.data}
-            species="dog"
-            onAdoptPet={this.onAdoptPet}
-          />
-        ) : null}
+        <Pet
+          pet={this.props.catToAdopt.data}
+          species="cat"
+          onAdoptPet={this.onAdoptPet}
+        />
+        <Pet
+          pet={this.props.dogToAdopt.data}
+          species="dog"
+          onAdoptPet={this.onAdoptPet}
+        />
       </main>
     )
   }
