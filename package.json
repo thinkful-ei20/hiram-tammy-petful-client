@@ -2,7 +2,9 @@
   "name": "petful-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://thinkful-ei20.github.io/hiram-tammy-petful-client",
   "dependencies": {
+    "gh-pages": "^1.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
@@ -11,6 +13,8 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "predeploy": "REACT_APP_API_BASE_URL=https://hiram-tammy-petful-server.herokuapp.com/api yarn build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
